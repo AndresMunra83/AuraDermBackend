@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 //@Getter
 //@Setter
@@ -18,7 +19,7 @@ import java.math.BigDecimal;
 @Table(name = "productos")
 public class ProductoModel {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String nombre;
     private String descripcion;
@@ -28,10 +29,13 @@ public class ProductoModel {
     private String category;
     private String skin_type;
 
+    @OneToMany
+    private List<ClienteModel> listaClientes;
+
     public ProductoModel() {
     }
 
-    public ProductoModel(Long id, String nombre, String descripcion, BigDecimal precio, int stock, String category, String skin_type) {
+    public ProductoModel(Long id, String nombre, String descripcion, BigDecimal precio, int stock, String category, String skin_type, List<ClienteModel> listaclientes) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -39,6 +43,7 @@ public class ProductoModel {
         this.stock = stock;
         this.category = category;
         this.skin_type = skin_type;
+        this.listaClientes = listaclientes;
     }
 
     public Long getId() {

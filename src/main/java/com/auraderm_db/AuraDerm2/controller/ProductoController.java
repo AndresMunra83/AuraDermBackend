@@ -26,4 +26,14 @@ public class ProductoController {
     public void deleteProducto(@PathVariable Long id){
         productoService.deleteProducto(id);
     }
+
+    @PutMapping("/actualizar")
+    public ProductoModel updateCliente(@RequestBody ProductoModel producto){
+        return productoService.editarProducto(producto);
+    }
+    @GetMapping("/buscar-producto-id/{id}")
+    public ProductoModel findProducto(@PathVariable Long id) {
+        return productoService.findProducto(id);
+    }
+
 }

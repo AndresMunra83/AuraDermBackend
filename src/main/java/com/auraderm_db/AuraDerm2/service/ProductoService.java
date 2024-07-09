@@ -14,6 +14,7 @@ public class ProductoService {
     public List<ProductoModel> getAllProductos(){
         return productoRepository.findAll();
     }
+
     //guardar producto
     public ProductoModel saveProducto(ProductoModel producto){
         return productoRepository.save(producto);
@@ -23,6 +24,15 @@ public class ProductoService {
 
     public void deleteProducto(Long id){
         productoRepository.deleteById(id);
+    }
+
+    public ProductoModel editarProducto(ProductoModel producto) {
+        return productoRepository.save(producto);
+    }
+
+    public ProductoModel findProducto(Long id) {
+        ProductoModel producto = productoRepository.findById(id).orElse(null);
+        return producto;
     }
 
 }
