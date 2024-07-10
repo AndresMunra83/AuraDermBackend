@@ -1,5 +1,4 @@
 package com.auraderm_db.AuraDerm2.model;
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,16 +12,13 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="cliente")
-public class ClienteModel {
+@Table(name="categoria")
+public class CategoriaModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nombre;
-    private String correo;
-    private String direccion;
-    private String telefono;
 
-    @OneToMany(mappedBy = "cliente")
-    private List<PedidoModel> pedidos;
+//    @OneToMany(mappedBy = "productos")
+//    private List<ProductoModel> productos;
 }
